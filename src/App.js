@@ -1,25 +1,63 @@
-import logo from './logo.svg';
-import './App.css';
+import React, { Component } from "react";
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+// App is class-component
+class App extends Component {
+  state = {
+    firstName: 'alina',
+    age: 30,
+    designation: 'developer',
+    arr: [89, 78, 56],
+    employeeData: [{}, {}, {}]
+  }
+
+  handleClick = () => {
+    // to update state this.setState()
+    this.setState({
+      age: 35,
+      designation: 'engineer'
+    });
+  }
+
+  //lifecycle 
+  render() {
+    return (
+      //jsx
+      // this refering to App
+      <div>
+        Hello!
+        My name is {this.state.firstName} and age is {this.state.age}, working as a {this.state.designation}
+        <button onClick={this.handleClick}>Update</button>
+
+        {this.state.arr.map((info) => {
+          return (
+            <div>
+              {info}
+            </div>
+          )
+        })}
+
+      </div>
+    )
+  }
+
 }
 
 export default App;
+
+// diffing algorithm
+// Recoincialation process
+
+{/* <button onclick="add()"></button> */ }
+
+
+// class Shape {
+//   constructor (id) {
+//     this.id = id;
+//   }
+
+//   displayId() {
+//     console.log(this.id);
+//   }
+// }
+
+// npm i
